@@ -60,9 +60,10 @@ a:hover{
         overflow-y: hidden;
     }
     #nav.active #menu{
-        height: 80%; /*100vh é 100% da altura da tela*/
+        height: 500px; /*100vh é 100% da altura da tela*/
         visibility: visible;
-        overflow-y: auto;
+        overflow-y: hidden;
+/*        overflow-y: auto;     deixar somente setiver mais idens*/
     }
     #menu a{
         padding: 20px 0;
