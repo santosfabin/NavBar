@@ -1,0 +1,106 @@
+*{
+    color: initial;
+}
+body{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    color: black;
+    font-family: sans-serif;
+}
+a{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+a:hover{
+    background: #ccc;
+}
+#logo{
+    font-size: 18px;
+    font-weight: bold;
+}
+#header{
+    display: flex; /*deixa um do lado do outro*/
+    align-items: center;
+    height: 70px;
+    padding: 10px;
+    justify-content: space-between;
+    background: #dfdfdf;
+}
+#menu{
+    display: flex;
+    list-style: none;
+    gap: .5rem;
+}
+#menu a{
+    display: block;
+    padding: 10px;
+}
+#btn-mobile{
+    display: none;
+}
+
+/*
+----------------------------------------------------------------------------
+*/
+
+@media screen and (max-width: 600px){
+    #menu{
+        display: block;
+        position: absolute;
+        width: 100%;
+        top: 70px;
+        right: 0px;
+        background-color: #dfdfdf;
+        z-index: 1000;
+        height: 0;
+        transition: .6s;
+        visibility: hidden;
+        overflow-y: hidden;
+    }
+    #nav.active #menu{
+        height: 80%; /*100vh é 100% da altura da tela*/
+        visibility: visible;
+        overflow-y: auto;
+    }
+    #menu a{
+        padding: 20px 0;
+        margin: 0 20px;
+        border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+    }
+    #btn-mobile{
+        display: flex;
+        padding: 50px 10px;
+        border: none;
+        background: none;
+        cursor: pointer;
+
+    }
+    #hamburguer{
+        border-top: 2px solid;
+        width: 20px;
+        gap: 20px;
+        display: block;
+    }
+    #hamburguer::after, #hamburguer::before{
+        content: '';
+        margin-top: 5px;
+        display: block;
+        width: 20px;
+        height: 2px;
+        background: currentColor; /* mantem a cor do principal */
+        transition: .3s;
+        position: relative;
+    }
+    #nav.active #hamburguer{
+        border-top-color: transparent;
+    }
+    #nav.active #hamburguer::before{
+        transform: rotate(135deg);
+    }
+    #nav.active #hamburguer::after{
+        transform: rotate(-135deg);
+        top: -7px;
+    }
+}
